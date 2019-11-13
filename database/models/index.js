@@ -1,3 +1,3 @@
-// const Airbnb = require('./airbnb');
+const Airbnb = require('./airbnb');
 
-// module.exports= Airbnb;
+module.exports= Airbnb;

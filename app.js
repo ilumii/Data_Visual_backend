@@ -10,12 +10,13 @@ app.use(cors());
 app.use('/', router);
 
 db.sync({
-    force:false
-})
-app.get('/', (req, res, next) => {
-    res.status(200).send('Hello World!');
-})
+    force: false
+},
+    app.listen(port, () => {
+        console.log(`Sever listening on port: ${port}`);
+    })
+)
+// app.get('/', (req, res, next) => {
+//     res.status(200).send('Hello World!');
+// })
 
-app.listen(port, () => {
-    console.log(`Sever listening on port: ${port}`);
-})

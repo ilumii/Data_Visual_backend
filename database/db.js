@@ -1,15 +1,15 @@
+require('dotenv').config();
 const Sequelize = require('sequelize')
 const tunnel = require('tunnel-ssh');
 
-// yc147:Tchen925!@12.42.205.8/yc147:yc147123@127.0.0.1/yc147
-const db = new Sequelize('mysql://yc147:yc147123@127.0.0.1/yc147')
+const db = new Sequelize(process.env.DATABASE_URL)
 
 // tunnel config 
 
 var config = {
-    username: 'yc147',
-    password: 'Tchen925!',
-    host: '12.42.205.8',
+    username: process.env.SSH_USERNAME,
+    password: process.env.SSH_PASSWORD,
+    host: process.env.SSH_HOST,
     port: 22,
     dstPort: 3306
 };
@@ -19,13 +19,11 @@ tunnel(config, function (error, server) {
     if (error) {
         console.error(error);
     } else {
-        
-        console.log('server:', server);
         // test sequelize connection     
         db.authenticate().then(function (err) {
-            console.log('connection established');
+            console.log('Connection established');
         }).catch(function (err) {
-            console.error('unable establish connection', err);
+            console.error('Unable establish connection', err);
         })
         
     }
@@ -33,4 +31,3 @@ tunnel(config, function (error, server) {
 
 module.exports = db;
 
-//   mysql+ssh://yc147:Tchen925!@12.42.205.8/yc147:yc147123@127.0.0.1/yc147?statusColor=686B6F&enviroment=production&name=IBM%20Azure&tLSMode=0&usePrivateKey=false&safeModeLevel=0&advancedSafeModeLevel=0
