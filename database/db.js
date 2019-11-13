@@ -5,13 +5,13 @@ const tunnel = require('tunnel-ssh');
 const db = new Sequelize(process.env.DATABASE_URL)
 
 // tunnel config 
-
 var config = {
     username: process.env.SSH_USERNAME,
     password: process.env.SSH_PASSWORD,
     host: process.env.SSH_HOST,
     port: 22,
-    dstPort: 3306
+    dstPort: 3306,
+    keepAlive:true
 };
 
 tunnel(config, function (error, server) {

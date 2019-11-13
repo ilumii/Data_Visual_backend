@@ -1,3 +1,7 @@
 const Airbnb = require('./airbnb');
+const Services = require('./services');
 
-module.exports= Airbnb;
+module.exports = {
+    Airbnb,
+    Services
+};
