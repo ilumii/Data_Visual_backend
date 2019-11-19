@@ -13,7 +13,7 @@ db.sync({
     force: false
 },
     app.listen(port, () => {
-        console.log(`Sever listening on port: ${port}`);
+        console.log(`Server listening on port: ${port}`);
     })
 )
 // app.get('/', (req, res, next) => {

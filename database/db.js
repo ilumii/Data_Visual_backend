@@ -2,9 +2,7 @@ require('dotenv').config();
 const Sequelize = require('sequelize')
 const tunnel = require('tunnel-ssh');
 
-const db = new Sequelize(process.env.DATABASE_URL,{
-
-})
+const db = new Sequelize(process.env.DATABASE_URL)
 
 // tunnel config 
 var config = {
