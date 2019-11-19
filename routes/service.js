@@ -17,4 +17,17 @@ service.get('/', async (req, res, next) => {
     }
 })
 
+service.get('/:borough', async(req, res, next) => {
+    try {
+        const data = await Services.findAll({
+            where: {borough: req.params.borough}
+        })
+        if(data) {
+            res.status(200).json(data);
+        }
+    } catch(err) {
+        res.status(400).send(err);
+    }
+})
+
 module.exports = service;
