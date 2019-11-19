@@ -15,6 +15,8 @@ http://data-visual-api.herokuapp.com/borough/Manhattan
 ```
 Will return data of Airbnbs in Manhattan.
 
+
+
 Endpoint to fetch a specific borough's 311 service data
 
 http://data-visual-api.herokuapp.com/service/{$borough_name}
