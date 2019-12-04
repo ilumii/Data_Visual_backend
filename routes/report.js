@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const moment = require('moment');
 const report = express.Router();
 const Report = require('../database/models/report');
 
@@ -28,7 +27,7 @@ report.post('/', async (req, res, next) => {
                 longitude: req.body.longitude,
                 date: Date.now()
             })
-            res.status(200).send({'The following user report has been added: ': data});
+            res.status(201).send({'The following user report has been added: ': data});
         } else {
             const data = await Report.create({
                 severity: req.body.severity,
@@ -36,7 +35,7 @@ report.post('/', async (req, res, next) => {
                 longitude: req.body.longitude,
                 date: Date.now()
             })
-            res.status(200).send({'The following user report has been added: ': data});
+            res.status(201).send({'The following user report has been added: ': data});
         } 
     } catch (err) {
         res.status(400).send(err);
